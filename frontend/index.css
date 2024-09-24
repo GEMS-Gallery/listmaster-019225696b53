@@ -1,9 +1,37 @@
+:root {
+    --bg-color: #f4f4f4;
+    --container-bg: #fff;
+    --text-color: #333;
+    --item-bg: #f9f9f9;
+    --button-bg: #4CAF50;
+    --button-hover: #45a049;
+    --delete-button-bg: #f44336;
+    --delete-button-hover: #d32f2f;
+    --complete-button-bg: #2196F3;
+    --complete-button-hover: #1976D2;
+}
+
+body.dark-mode {
+    --bg-color: #333;
+    --container-bg: #444;
+    --text-color: #f4f4f4;
+    --item-bg: #555;
+    --button-bg: #2e7d32;
+    --button-hover: #1b5e20;
+    --delete-button-bg: #c62828;
+    --delete-button-hover: #b71c1c;
+    --complete-button-bg: #1565c0;
+    --complete-button-hover: #0d47a1;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -11,14 +39,14 @@ body {
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--container-bg);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--text-color);
 }
 
 #add-item-form {
@@ -32,12 +60,14 @@ h1 {
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 3px 0 0 3px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
 }
 
 button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    background-color: #4CAF50;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     cursor: pointer;
@@ -45,7 +75,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--button-hover);
 }
 
 #shopping-list {
@@ -57,7 +87,7 @@ button:hover {
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    background-color: #f9f9f9;
+    background-color: var(--item-bg);
     margin-bottom: 0.5rem;
     border-radius: 3px;
 }
@@ -73,18 +103,29 @@ button:hover {
 }
 
 .delete-btn {
-    background-color: #f44336;
+    background-color: var(--delete-button-bg);
     margin-left: 0.5rem;
 }
 
 .delete-btn:hover {
-    background-color: #d32f2f;
+    background-color: var(--delete-button-hover);
 }
 
 .complete-btn {
-    background-color: #2196F3;
+    background-color: var(--complete-button-bg);
 }
 
 .complete-btn:hover {
-    background-color: #1976D2;
+    background-color: var(--complete-button-hover);
+}
+
+.mode-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
 }

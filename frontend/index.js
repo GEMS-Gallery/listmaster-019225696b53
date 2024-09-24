@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const shoppingList = document.getElementById('shopping-list');
   const addItemForm = document.getElementById('add-item-form');
   const newItemInput = document.getElementById('new-item');
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
 
   // Function to render the shopping list
   async function renderShoppingList() {
@@ -53,6 +54,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       await renderShoppingList();
     }
   });
+
+  // Dark mode toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    darkModeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  }
+
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+
+  // Check for saved dark mode preference
+  const savedDarkMode = localStorage.getItem('darkMode');
+  if (savedDarkMode === 'true') {
+    toggleDarkMode();
+  }
 
   // Initial render
   await renderShoppingList();
